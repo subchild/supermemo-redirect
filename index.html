@@ -27,6 +27,8 @@
       body {
         margin: 0;
         min-height: 100%;
+        height: 100%;
+        overflow: hidden;
         font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
         color: #ffffff;
         background: #000000;
@@ -34,7 +36,8 @@
 
       .page {
         position: relative;
-        min-height: 100vh;
+        min-height: 100dvh;
+        height: 100dvh;
         display: grid;
         place-items: center;
         padding: 24px;
@@ -109,11 +112,15 @@
         letter-spacing: -0.015em;
       }
 
+      .brand-lockup {
+        white-space: nowrap;
+      }
+
       .h1-logo {
-        height: 38px;
+        height: 0.9em;
         width: auto;
         vertical-align: middle;
-        margin-left: 8px;
+        margin-left: 0.18em;
         filter: brightness(0) invert(1);
       }
 
@@ -147,6 +154,40 @@
         background: #ffffff;
         font-weight: 400;
       }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 20px;
+        }
+
+        .card {
+          width: min(100%, 420px);
+          padding: 40px 28px;
+        }
+
+        h1 {
+          font-size: clamp(1.55rem, 6.4vw, 1.9rem);
+          margin-bottom: 10px;
+          line-height: 1.1;
+        }
+
+        .h1-logo {
+          height: 1em;
+        }
+
+        p {
+          margin-bottom: 40px;
+        }
+
+        .meta {
+          font-size: 0.95rem;
+          gap: 10px;
+        }
+
+        .brand-period {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
@@ -158,7 +199,11 @@
       <section class="card" role="status" aria-live="polite">
         <h1>
           supermemo is now
-          <img class="h1-logo" src="https://supersolo.co/supersolo-horiz.svg" alt="Supersolo" />.
+          <span class="brand-lockup"
+            ><img class="h1-logo" src="https://supersolo.co/supersolo-horiz.svg" alt="Supersolo" /><span class="brand-period"
+              >.</span
+            ></span
+          >
         </h1>
         <p>
           All your notes, context, and tasks in one place — powered by AI.
